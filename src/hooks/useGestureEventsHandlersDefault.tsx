@@ -43,6 +43,10 @@ export const useGestureEventsHandlersDefault: GestureEventsHandlersHookType =
       stopAnimation,
     } = useBottomSheetInternal();
     //#endregion
+  
+    const dismissKeyboard = () => {
+      Keyboard.dismiss();
+    };
 
     //#region gesture methods
     const handleOnStart: GestureEventHandlerCallbackType<GestureEventContextType> =
@@ -296,7 +300,7 @@ export const useGestureEventsHandlersDefault: GestureEventsHandlersHookType =
                 absoluteY > WINDOW_HEIGHT - animatedKeyboardHeight.value
               )
             ) {
-              runOnJS(Keyboard.dismiss)();
+              runOnJS(dismissKeyboard)();
             }
           }
 
